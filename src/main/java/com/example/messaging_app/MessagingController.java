@@ -1,12 +1,11 @@
 package com.example.messaging_app;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@RequestMapping("/Hello")
 public class MessagingController {
 
 
@@ -18,14 +17,28 @@ public class MessagingController {
     //}
 
 
-
     //UC2: GET REQUEST with query paramenter
-    @GetMapping
-    public String name(@RequestParam String name){
-        return "Hello" + name + "!";
-    }
+//    @GetMapping
+//    public String name(@RequestParam String name){
+//        return "Hello" + name + "!";
+    //}
 
+    //UC3: GET Request Method with Path Variable
+    @GetMapping("/{name}")
+    public String name(@PathVariable String name){
+        return "Hello, " + name + " from BridgeLabz";
+    }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
